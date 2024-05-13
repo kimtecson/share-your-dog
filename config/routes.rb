@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'bookings/show'
+  get 'bookings/index'
+  get 'bookings/new'
+  get 'bookings/create'
+  get 'dogs/index'
+  get 'dogs/show'
+  get 'dogs/create'
+  get 'dogs/new'
+  get 'users/index'
+  get 'users/show'
+  get 'users/bookings'
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
