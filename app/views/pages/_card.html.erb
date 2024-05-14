@@ -1,7 +1,14 @@
-<div class="card m-4 rounded-4" style="width: 18rem;">
-  <div class="card-body p-0">
-    <%= image_tag 'aria.jpg', alt: "text", class: "card-img img-fluid rounded-4" %>
+<div class="dog_card">
+  <div class="card mt-3 m-1 rounded-4">
+    <div class="card-body p-0">
+      <%= image_tag 'aria.jpg', alt: "text", class: "card-img img-fluid rounded-top-4" %>
+    </div>
+    <div class="bio ms-2">
+      <p class="mt-3">
+        <strong><%= dog.name %></strong>
+        <br>
+        <%="#{dog.user.name}'s Pupil" %>
+      </p>
+    </div>
   </div>
 </div>
-
-<p><%=dog.name%><p>
