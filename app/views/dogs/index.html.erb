@@ -1,6 +1,20 @@
 <h1>Dogs Index</h1>
 <p>Have a look at all wonderful dogs on our books!</p>
 
-<% @dogs.each do |dog| %>
-<%= link_to "#{dog.name}", dog_path(dog) %>
-<% end %>
+<div class="row">
+
+  <div class="col-6">
+    <div class="row">
+      <% @dogs.each do |dog| %>
+        <div class="col-6">
+          <%= render 'pages/card', dog: dog %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <img src="https://artspacetokyo.com/images/ast_2/maps/aoyama_meguro-large.png" alt="Map of Tokyo" class="w-100">
+  </div>
+
+</div>
