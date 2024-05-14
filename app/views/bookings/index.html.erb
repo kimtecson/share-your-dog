@@ -1,2 +1,10 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<h1><%= "#{@user.name}'s Bookings" %></h1>
+<% if @bookings.count > 0 %>
+  <ul>
+  <% @bookings.each do |booking| %>
+  <li><%= "There is a booking, TODO breakdown/card for booking"  %></li>
+  <% end %>
+  </ul>
+<% else %>
+  <p><%= "You have no bookings!"%></p>
+<% end %>
