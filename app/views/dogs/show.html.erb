@@ -1,65 +1,74 @@
-<div class="container ">
+<div class="container">
+  <!-- Dog information -->
   <div class="d-flex justify-content-between my-2">
-
-      <h1><%= @dog.name %></h1>
-
-      <button type="button" class="btn btn-light"><i class="fa-regular fa-heart"></i> Save</button>
-
+    <h1><%= @dog.name %></h1>
+    <button type="button" class="btn btn-light"><i class="fa-regular fa-heart"></i> Save</button>
   </div>
+
+  <!-- Dog images -->
   <div class="row">
-  <div class="col-6">
-  <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
-  </div>
-  <div class="col-6">
-    <div class="row h-100">
-    <div class="col-6 d-flex flex-column justify-content-between">
-      <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+    <div class="col-6">
       <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
     </div>
-
-    <div class="col-6 d-flex flex-column justify-content-between">
-    <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
-    <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
-    </div>
+    <div class="col-6">
+      <div class="row h-100">
+        <div class="col-6 d-flex flex-column justify-content-between">
+          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+        </div>
+        <div class="col-6 d-flex flex-column justify-content-between">
+          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
 
+  <!-- Dog details -->
   <div class="mt-4">
     <div class="row">
       <div class="col-8 my-2">
+        <!-- Breed and age -->
         <p class='mb-0'> <i class="fa-solid fa-dog"></i> <%= @dog.breed.capitalize %></p>
         <p class='mb-0'> <i class="fa-solid fa-calendar-days"></i> <%= @dog.age %> years old </p>
+
+        <!-- Owner information -->
         <div class="row border-top mt-2">
-        <div class="d-flex align-items-center mt-2">
+          <div class="d-flex align-items-center mt-2">
             <%= image_tag 'stan.jpg', alt: "text", class: 'rounded-circle avatar me-2', width: '40px', height: '40px' %>
             <%= @dog.user.name %>
+          </div>
         </div>
-        </div>
+
+        <!-- Description -->
         <div class="row border-top mt-2">
-        <div class="col-12 my-2">
-        <%= @dog.description %>
-        </div>
+          <div class="col-12 my-2">
+            <%= @dog.description %>
+          </div>
         </div>
       </div>
-      <div class="col-4 border border-2  text-center justify-content-center">
-      <div class="row">
-        <p><%= @dog.price %>0</p>
-      </div>
-      <div class="row justify-content-center">
-        <div class="w-50 bg-light border">
-        start date
+
+      <!-- Booking and price -->
+      <div class="col-4 border border-2 text-center justify-content-center rounded-4">
+        <div class="row">
+          <p><%= @dog.price %>0</p>
         </div>
-        <div class="w-50 bg-light border">
-        end date
+
+        <!-- Date picker -->
+        <div class="row justify-content-center mx-2">
+          <div class="bg-light border rounded-4">
+            <%= simple_form_for(@booking) do |f| %>
+            <div class="d-flex">
+              <%= f.input :start_time, placeholder: '20/09/2004', as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" } %>
+              <%= f.input :end_time, placeholder: '20/09/2004', as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" } %>
+            </div>
+            <% end %>
+
+          </div>
         </div>
-        </div>
-        <div class="row align-items-end h-50">
-        <button type="button" class="btn btn-secondary">Request</button>
-        </div>
+
+        <!-- Request button -->
       </div>
     </div>
-
   </div>
-
 </div>
