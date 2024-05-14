@@ -7,24 +7,59 @@
 
   </div>
   <div class="row">
-    <div class="col-sm-3 col-3">
-      <%= image_tag 'aria.jpg', alt: "text" %>
-    </div>
-    <div class="col-sm-9 col-9">
-      <div class="row">
-        <div class="col-8 col-sm-6">
-          <%= image_tag 'aria.jpg', alt: "text" %>
-        </div>
-        <div class="col-4 col-sm-6">
-          <%= image_tag 'aria.jpg', alt: "text" %>
-        </div>
-        <div class="col-8 col-sm-6">
-          <%= image_tag 'aria.jpg', alt: "text" %>
-        </div>
-        <div class="col-4 col-sm-6">
-          <%= image_tag 'aria.jpg', alt: "text" %>
-        </div>
-      </div>
-      </div>
+  <div class="col-6">
+  <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
   </div>
+  <div class="col-6">
+    <div class="row h-100">
+    <div class="col-6 d-flex flex-column justify-content-between">
+      <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+      <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+    </div>
+
+    <div class="col-6 d-flex flex-column justify-content-between">
+    <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+    <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+    </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="row">
+      <div class="col-8 my-2">
+        <p class='mb-0'> <i class="fa-solid fa-dog"></i> <%= @dog.breed.capitalize %></p>
+        <p class='mb-0'> <i class="fa-solid fa-calendar-days"></i> <%= @dog.age %> years old </p>
+        <div class="row border-top mt-2">
+        <div class="d-flex align-items-center mt-2">
+            <%= image_tag 'stan.jpg', alt: "text", class: 'rounded-circle avatar me-2', width: '40px', height: '40px' %>
+            <%= @dog.user.name %>
+        </div>
+        </div>
+        <div class="row border-top mt-2">
+        <div class="col-12 my-2">
+        <%= @dog.description %>
+        </div>
+        </div>
+      </div>
+      <div class="col-4 border border-2  text-center justify-content-center">
+      <div class="row">
+        <p><%= @dog.price %>0</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="w-50 bg-light border">
+        start date
+        </div>
+        <div class="w-50 bg-light border">
+        end date
+        </div>
+        </div>
+        <div class="row align-items-end h-50">
+        <button type="button" class="btn btn-secondary">Request</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>
