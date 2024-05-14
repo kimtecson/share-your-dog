@@ -29,7 +29,12 @@
                 <% end %>
               </ul>
           </ul>
-          <button type="button" class="btn btn-light rounded-4">Log in</button>
+          <% if !user_signed_in? %>
+          <%= link_to "Log in", user_session_path, class: "btn btn-light rounded-4"%>
+          <% else %>
+          <%= link_to "My Account", root_path, class: "btn btn-light rounded-4"%>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-danger rounded-4"%>
+          <% end %>
         </div>
       </div>
     </nav>
