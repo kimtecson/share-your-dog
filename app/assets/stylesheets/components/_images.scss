@@ -1,3 +1,18 @@
+// #main_image {
+//   object-fit: contain;
+//   height: 720px;
+// }
+
 img {
   object-fit: contain;
+  border-radius: 8px;
+  // height: 50%;
 }
+
+.avatar {
+  object-fit: cover;
+}
+
+// .product-img-container {
+//   height: 720px;
+// }
