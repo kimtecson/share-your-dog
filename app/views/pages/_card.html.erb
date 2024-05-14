@@ -3,12 +3,11 @@
     <div class="card-body p-0">
       <%= image_tag 'aria.jpg', alt: "text", class: "card-img img-fluid rounded-top-4" %>
     </div>
-    <div class="bio ms-2">
-      <p class="mt-3">
-        <strong><%= dog.name %></strong>
-        <br>
-        <%="#{dog.user.name}'s Pupil" %>
-      </p>
+    <div class="bio ms-2 mt-3 dog_card">
+      <p class="mb-0 black-bold"> <strong><%= dog.name %></strong> </p>
+      <p class="mb-0"> <%="#{dog.user.name}'s Pupil" %></p>
+      <p class="black-semi-bold">$<%=dog.price%>0 per hour</p>
+
     </div>
   </div>
 </div>
