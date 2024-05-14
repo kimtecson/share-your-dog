@@ -1,21 +1,29 @@
-<h1>Share Your Dog.</h1>
-<div class="search">
-  <p>Search Bar Will go Here</p>
+
+
+
+<div class="home-head d-flex justify-content-center">
+  <div class="text-center">
+    <h1>Share Your Dog.</h1>
+    <input></input>
+  </div>
 </div>
 
-<div class="row">
 
-<% @dogs.each do |dog| %>
-  <div class="col-3">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%=dog.name%></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+<div class="row">
+  <% @dogs.each do |dog| %>
+    <div class="col-3">
+      <div class="each-dog-info mt-5">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%=dog.name%></h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
 </div>
