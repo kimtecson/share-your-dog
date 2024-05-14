@@ -13,6 +13,8 @@
 
 <div class="row">
   <% @dogs.each do |dog| %>
+  <div class="col-3">
     <%= render 'pages/card', dog: dog %>
+  </div>
   <% end %>
 </div>
