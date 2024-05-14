@@ -49,26 +49,34 @@
       </div>
 
       <!-- Booking and price -->
-      <div class="col-4 border border-2 text-center justify-content-center rounded-4">
+      <div class="col-4 text-center justify-content-center" data-controller="booking-price" data-booking-price-price-value="<%= @dog.price %>"  id="booking-box">
         <div class="row h-25 align-items-center">
-          <p class='mb-0 black-bold'>$<%= @dog.price %>0</p>
+          <p class='mb-0 black-bold'>¥<%= @dog.price %>0 per hour</p>
         </div>
 
         <!-- Date picker -->
         <div class="row justify-content-center mx-2">
-          <div class="bg-light border rounded-4" id="booking-box">
+          <div class="bg-light border rounded-4">
             <%= simple_form_for(@booking) do |f| %>
             <div class="d-flex">
-              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
-              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" } %>
+              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
+              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today } %>
             </div>
             <% end %>
 
           </div>
         </div>
-
+        <p class='mt-1 d-flex align-items-center justify-content-between mb-0'>
+          <span data-booking-price-target='info'></span>
+          <span class='fw-bold' data-booking-price-target='price'></span>
+        </p>
         <!-- Request button -->
+        <button type="button" class="btn btn-dark w-100 rounded-4 mt-1">Reserve</button>
+
       </div>
     </div>
+        <!-- Review -->
+        <div class="mt-2 border"></div>
+        <h1>reviews</h1>
   </div>
 </div>
