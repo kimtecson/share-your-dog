@@ -50,17 +50,17 @@
 
       <!-- Booking and price -->
       <div class="col-4 border border-2 text-center justify-content-center rounded-4">
-        <div class="row">
-          <p><%= @dog.price %>0</p>
+        <div class="row h-25 align-items-center">
+          <p class='mb-0 black-bold'>$<%= @dog.price %>0</p>
         </div>
 
         <!-- Date picker -->
         <div class="row justify-content-center mx-2">
-          <div class="bg-light border rounded-4">
+          <div class="bg-light border rounded-4" id="booking-box">
             <%= simple_form_for(@booking) do |f| %>
             <div class="d-flex">
-              <%= f.input :start_time, placeholder: '20/09/2004', as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" } %>
-              <%= f.input :end_time, placeholder: '20/09/2004', as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" } %>
+              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
+              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string, input_html: { data: { controller: "datepicker" }, style: "background-color: transparent; border: none;" } %>
             </div>
             <% end %>
 
