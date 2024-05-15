@@ -27,15 +27,18 @@ puts "-- Created #{User.count} users."
 
 # Creating Dogs
 16.times do |i|
-  new_dog = Dog.new(name: Faker::Name.first_name, age: rand(1..10), availability: true, breed: Dog::BREEDS.sample, description: "This is a fake-data dog for testing.", price: rand(1..20))
-  new_dog.user = User.all.sample
-  new_dog.photos.attach(io: File.open("app/assets/images/aria1.jpg"), filename: "aria1.jpg")
-  new_dog.photos.attach(io: File.open("app/assets/images/aria2.jpg"), filename: "aria2.jpg")
-  new_dog.photos.attach(io: File.open("app/assets/images/aria3.jpg"), filename: "aria3.jpg")
-  new_dog.photos.attach(io: File.open("app/assets/images/aria4.jpg"), filename: "aria4.jpg")
-  new_dog.photos.attach(io: File.open("app/assets/images/aria5.jpg"), filename: "aria5.jpg")
-  new_dog.save
-  puts "(Dog) #{new_dog.name} created, owned by #{new_dog.user.name}."
+  photos = ['aria1', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j']
+  photos.each do |photo|
+    new_dog = Dog.new(name: Faker::Name.first_name, age: rand(1..10), availability: true, breed: Dog::BREEDS.sample, description: Faker::Books::Lovecraft.paragraph, price: rand(100..200))
+    new_dog.user = User.all.sample
+    new_dog.photos.attach(io: File.open("app/assets/images/#{photo}.jpg"), filename: "aria1.jpg")
+    new_dog.photos.attach(io: File.open("app/assets/images/aria2.jpg"), filename: "aria2.jpg")
+    new_dog.photos.attach(io: File.open("app/assets/images/aria3.jpg"), filename: "aria3.jpg")
+    new_dog.photos.attach(io: File.open("app/assets/images/aria4.jpg"), filename: "aria4.jpg")
+    new_dog.photos.attach(io: File.open("app/assets/images/aria5.jpg"), filename: "aria5.jpg")
+    new_dog.save
+    puts "(Dog) #{new_dog.name} created, owned by #{new_dog.user.name}."
+  end
 end
 puts "-- Created #{Dog.count} dogs."
 
