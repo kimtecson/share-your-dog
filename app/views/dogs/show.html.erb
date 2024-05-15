@@ -6,21 +6,21 @@
   </div>
 
   <!-- Dog images -->
-  <div class="row">
-    <div class="col-6">
-      <%= image_tag @dog.photos.all[0], alt: "text", class: "w-100" %>
+  <div class="row dog-grid">
+    <div class="col-6 p-1">
+      <%= image_tag @dog.photos.all[0], alt: "text", class: "w-100 p-1" %>
     </div>
-    <div class="col-6">
+    <div class="col-6 p-1">
       <div class="row h-100">
-        <div class="col-6 d-flex flex-column justify-content-between">
-          <%= image_tag @dog.photos.all[1], alt: "text", class: "w-100" %>
-          <%= image_tag @dog.photos.all[2], alt: "text", class: "w-100" %>
+        <div class="col-6 d-flex flex-column justify-content-between p-1">
+          <%= image_tag @dog.photos.all[1], alt: "text", class: "w-100 h-50 pb-1" %>
+          <%= image_tag @dog.photos.all[2], alt: "text", class: "w-100 h-50" %>
         </div>
-        <div class="col-6 d-flex flex-column justify-content-between">
-          <%= image_tag @dog.photos.all[3], alt: "text", class: "w-100" %>
-          <%= image_tag @dog.photos.all[4], alt: "text", class: "w-100" %>
+        <div class="col-6 d-flex flex-column justify-content-between p-0 pb-1 pt-1">
+          <%= image_tag @dog.photos.all[3], alt: "text", class: "w-100 h-50 pb-1" %>
+          <%= image_tag @dog.photos.all[4], alt: "text", class: "w-100 h-50" %>
         </div>
-      </div>
+      </dp-0 itv>
     </div>
   </div>
 
@@ -61,7 +61,6 @@
             <div class="d-flex">
               <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
               <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today } %>
-              <%= f.submit %>
             </div>
             <% end %>
 
@@ -73,6 +72,7 @@
         </p>
         <!-- Request button -->
         <%# <button type="button" class="btn btn-dark w-100 rounded-4 mt-1">Reserve</button> %>
+        <%= button_tag(type: 'submit', class: "btn btn-dark w-100 rounded-4 mt-1") do %> Reserve <% end %>
 
       </div>
     </div>

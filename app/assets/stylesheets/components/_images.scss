@@ -9,6 +9,14 @@ img {
   // height: 50%;
 }
 
+.dog-grid {
+  img {
+    object-fit: cover;
+    border-radius: 16px;
+    height: 100%;
+    padding: 0px;
+  }
+}
 .avatar {
   object-fit: cover;
 }
