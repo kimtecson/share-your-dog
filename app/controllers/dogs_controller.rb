@@ -2,10 +2,14 @@ class DogsController < ApplicationController
   def index
     @dogs = Dog.all
 
-    @markers = User.geocoded.map do |user|
+    @users = User.where(id: @dogs.extract_associated(:user).uniq.pluck(:id))
+
+    @markers = @users.geocoded.map do |user|
+
       {
         latitude: user.latitude,
-        longitude: user.longitude
+        longitude: user.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {dogs: user.dogs})
       }
     end
   end
@@ -19,8 +23,7 @@ class DogsController < ApplicationController
     @owner = current_user
     @dog = Dog.new(dog_params)
     @dog.owner = @owner
-    @dog.save
-    if @dog.id
+    if @dog.save
       redirect_to dog_path(@dog)
     else
       render 'new', status: :unprocessable_entity
@@ -29,13 +32,12 @@ class DogsController < ApplicationController
 
   def new
     @owner = current_user
-    @dog = Dog.new(dog_params)
+    @dog = Dog.new
   end
 
   private
 
   def dog_params
-    params.require(:dog).permit(:name, :age, :breed, :price, :photos [])
+    params.require(:dog).permit(:name, :age, :breed, :price, photos: [])
   end
-
 end
