@@ -1,10 +1,11 @@
 class DogsController < ApplicationController
   def index
     @dogs = Dog.all
-    @markers = @dogs.geocoded.map do |flat|
+
+    @markers = User.geocoded.map do |user|
       {
-        latitutde: user.latitude,
-        longitute: user.longitude
+        latitude: user.latitude,
+        longitude: user.longitude
       }
     end
   end
