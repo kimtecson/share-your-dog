@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   margin-top: 8px;
+  position: relative;
 }
 
 .card-booking img {
@@ -31,3 +32,24 @@
 .card-booking .card-booking-infos {
   padding: 16px;
 }
+
+.card-remove-link {
+  color: rgb(52, 31, 31);
+  border-radius: 50%;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.8;
+  font-weight: lighter;
+  text-decoration: none;
+  &:hover {
+    color: rgb(213, 10, 10);
+    opacity: 1;
+  };
+};
