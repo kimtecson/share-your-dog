@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
 
-  # geocoder logic for map an
+  # geocoder logic for map
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
