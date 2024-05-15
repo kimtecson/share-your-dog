@@ -8,17 +8,17 @@
   <!-- Dog images -->
   <div class="row">
     <div class="col-6">
-      <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+      <%= image_tag @dog.photos.all[0], alt: "text", class: "w-100" %>
     </div>
     <div class="col-6">
       <div class="row h-100">
         <div class="col-6 d-flex flex-column justify-content-between">
-          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
-          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+          <%= image_tag @dog.photos.all[1], alt: "text", class: "w-100" %>
+          <%= image_tag @dog.photos.all[2], alt: "text", class: "w-100" %>
         </div>
         <div class="col-6 d-flex flex-column justify-content-between">
-          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
-          <%= image_tag 'aria.jpg', alt: "text", class: "w-100" %>
+          <%= image_tag @dog.photos.all[3], alt: "text", class: "w-100" %>
+          <%= image_tag @dog.photos.all[4], alt: "text", class: "w-100" %>
         </div>
       </div>
     </div>
@@ -57,10 +57,11 @@
         <!-- Date picker -->
         <div class="row justify-content-center mx-2">
           <div class="bg-light border rounded-4">
-            <%= simple_form_for(@booking) do |f| %>
+            <%= simple_form_for([@dog, @booking]) do |f| %>
             <div class="d-flex">
-              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
-              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today } %>
+              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
+              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today } %>
+              <%= f.submit %>
             </div>
             <% end %>
 
@@ -71,7 +72,7 @@
           <span class='fw-bold' data-booking-price-target='price'></span>
         </p>
         <!-- Request button -->
-        <button type="button" class="btn btn-dark w-100 rounded-4 mt-1">Reserve</button>
+        <%# <button type="button" class="btn btn-dark w-100 rounded-4 mt-1">Reserve</button> %>
 
       </div>
     </div>

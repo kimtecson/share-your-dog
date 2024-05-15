@@ -14,9 +14,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.dog = @dog
     @booking.user = @user
-    @booking.save
-    if @booking.id
-      redirect_to dogs_path
+    @booking.status = "pending"
+    @booking.total_price = @dog.price * (@booking.end_time - @booking.start_time) * 24
+    if @booking.save
+      redirect_to bookings_path
     else
       render 'new', status: :unprocessable_entity
     end

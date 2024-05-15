@@ -1,10 +1,8 @@
 <h1><%= "#{@user.name}'s Bookings" %></h1>
 <% if @bookings.count > 0 %>
-  <ul>
   <% @bookings.each do |booking| %>
-  <li><%= "There is a booking, TODO breakdown/card for booking"  %></li>
+      <%= render 'pages/booking_card', booking: booking %>
   <% end %>
-  </ul>
 <% else %>
   <p><%= "You have no bookings!"%></p>
 <% end %>
