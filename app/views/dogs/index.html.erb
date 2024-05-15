@@ -1,19 +1,24 @@
-<h1>Dogs Index</h1>
-<p>Have a look at all wonderful dogs on our books!</p>
+
 
 <div class="row">
 
-  <div class="col-6">
-    <div class="row">
+
+    <div class="col-6">
+    <h1>Hello world!</h1>
+      <div class="row">
       <% @dogs.order(:id).each do |dog| %>
         <div class="col-6">
           <%= render 'pages/card', dog: dog %>
         </div>
       <% end %>
+      </div>
+    </div>
+
+  <div class="col-6">
+    <div style="width: 100%; height: 100vh;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-
-  <div class="col-6 map" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
 </div>

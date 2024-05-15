@@ -9,7 +9,8 @@ class DogsController < ApplicationController
       {
         latitude: user.latitude,
         longitude: user.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {dogs: user.dogs})
+        info_window_html: render_to_string(partial: "info_window", locals: {dogs: user.dogs}),
+        marker_html: render_to_string(partial: "marker", locals: {dogs: user.dogs})
       }
     end
   end
