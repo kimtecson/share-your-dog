@@ -2,14 +2,15 @@
 
 <div class="row">
 
+
     <div class="col-6">
     <h1>Hello world!</h1>
       <div class="row">
-        <% @dogs.each do |dog| %>
-          <div class="col-6">
-            <%= render 'pages/card', dog: dog %>
-          </div>
-        <% end %>
+      <% @dogs.order(:id).each do |dog| %>
+        <div class="col-6">
+          <%= render 'pages/card', dog: dog %>
+        </div>
+      <% end %>
       </div>
     </div>
 
