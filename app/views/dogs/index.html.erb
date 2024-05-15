@@ -5,7 +5,7 @@
 
   <div class="col-6">
     <div class="row">
-      <% @dogs.each do |dog| %>
+      <% @dogs.order(:id).each do |dog| %>
         <div class="col-6">
           <%= render 'pages/card', dog: dog %>
         </div>
