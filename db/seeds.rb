@@ -17,14 +17,16 @@ User.destroy_all
 puts "database cleared."
 # Creating Users
 puts "Seeding Users"
-10.times do |i|
-  new_user = User.create!(email: "abc#{i}@gmail.com", password: "password", name: Faker::Name.first_name, age: rand(18...80))
+meguro = ['Meguro River', 'Meguro Parasitological Museum','Rinshinomori Park', 'Tokyo Metropolitan Teien Art Museum', 'Gotokuji Temple','Yutenji Temple', 'Happoen Garden', 'Institute for Nature Study', 'Naka-Meguro Shopping Street', 'Meguro Sky Garden']
+
+meguro.each_with_index do |address, i|
+  new_user = User.create!(email: "abc#{i}@gmail.com", password: "password", name: Faker::Name.first_name, age: rand(18...80), address: address)
   puts "(User) #{new_user.name} created."
 end
 puts "-- Created #{User.count} users."
 
 # Creating Dogs
-5.times do |i|
+16.times do |i|
   new_dog = Dog.new(name: Faker::Name.first_name, age: rand(1..10), availability: true, breed: Dog::BREEDS.sample, description: "This is a fake-data dog for testing.", price: rand(1..20))
   new_dog.user = User.all.sample
   new_dog.photos.attach(io: File.open("app/assets/images/aria1.jpg"), filename: "aria1.jpg")
