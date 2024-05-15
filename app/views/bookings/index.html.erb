@@ -1,8 +1,12 @@
 <h1><%= "#{@user.name}'s Bookings" %></h1>
 <% if @bookings.count > 0 %>
+<div class="row">
   <% @bookings.each do |booking| %>
+      <div class="col-6">
       <%= render 'pages/booking_card', booking: booking %>
+      </div>
   <% end %>
+</div>
 <% else %>
   <p><%= "You have no bookings!"%></p>
 <% end %>
