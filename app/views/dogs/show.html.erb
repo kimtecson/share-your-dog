@@ -8,7 +8,7 @@
   <!-- Dog images -->
   <div class="row dog-grid">
     <div class="col-6 p-1">
-      <%= image_tag @dog.photos.all[0], alt: "text", class: "w-100 p-1" %>
+      <%= image_tag @dog.photos.all[0], alt: "text", class: "h-100 w-100 p-1" %>
     </div>
     <div class="col-6 p-1">
       <div class="row h-100">
@@ -59,8 +59,8 @@
           <div class="bg-light border rounded-4">
             <%= simple_form_for([@dog, @booking]) do |f| %>
             <div class="d-flex">
-              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
-              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none;", min: Date.today } %>
+              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
+              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today } %>
             </div>
             <% end %>
 
