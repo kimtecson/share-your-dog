@@ -1,9 +1,11 @@
 
-.navbar.btn-account {
+.navbar .btn-account {
   border-radius: 12px;
   background: rgb(32, 44, 57) !important;
   color: white;
   padding: 10px;
+  text-decoration: none;
+  margin: 5px;
 
 }
 .navbar {
@@ -11,7 +13,10 @@
   background: white;
   color: rgb(32, 44, 57);
   box-shadow: 0px 10px 10px -15px #111;
+  .nav-link{
   text-decoration: none;
+  padding: 5px;
+  }
 
   // .nav-link{
   //   text-decoration: none;
