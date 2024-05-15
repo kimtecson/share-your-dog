@@ -1,0 +1,9 @@
+<div class="card-booking">
+  <%= image_tag booking.dog.photos.all[0], alt: "Dog"%>
+  <div class="card-booking-infos">
+    <h2>Booking with <%=booking.dog.name%></h2>
+    <p>Total Price: <strong><%=booking.total_price %></strong></p>
+    <p>Start Date: <strong><%=booking.start_time %></strong> </p>
+    <p>End Date: <strong><%=booking.end_time %></strong> </p>
+  </div>
+</div>
