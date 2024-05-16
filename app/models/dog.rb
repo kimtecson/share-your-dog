@@ -6,7 +6,7 @@ class Dog < ApplicationRecord
   has_many_attached :photos
 
   validates :name, presence: true, length: { within: 3..20 }
-  validates :age, presence: true
+  validates :age, presence: true, numericality: { greater_than_or_equal_to: 0 }
   BREEDS = ["shiba", "corgie", "husky", "daschund", "poodle"]
   validates :breed, presence: true, inclusion: { in: BREEDS }
   validates :price, presence: true

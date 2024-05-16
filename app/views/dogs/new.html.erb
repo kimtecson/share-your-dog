@@ -1,15 +1,16 @@
-<h1>List Your Dog</h1>
-<p>Find me in app/views/dogs/new.html.erb</p>
+<h1 class="mt-3">List Your Dog</h1>
+
 <div class="form-dog">
   <%= simple_form_for @dog do |f| %>
 
-      <%= f.input :name %>
-      <%= f.input :age %>
-      <%= f.input :breed %>
-      <%= f.input :description %>
-      <%= f.input :price %>
+      <%= f.input :name, placeholder: "What's your dog's name?" %>
+      <%= f.input :age, placeholder: "What's your dog's age?" %>
+      <%= f.input :breed, collection: Dog::BREEDS, include_blank: false%>
+      <%= f.input :description, placeholder: "What's your dog like?" %>
+      <%= f.input :price, placeholder: "How much would you like to charge per hour for your dog? (In JPY)" %>
       <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
       <%= f.submit %>
 
   <% end %>
 </div>
+<br>
