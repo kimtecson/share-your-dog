@@ -8,5 +8,17 @@
     <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'This will delete this booking, are you sure?' }, class: 'card-remove-link' do %>
       <i class="fa-solid fa-square-xmark"></i>
     <% end %>
+
+   <% case booking.status %>
+    <% when "pending" %>
+      <span class="badge text-bg-secondary rounded-pill card-pending-pill">Pending</span>
+    <% when "accepted"  %>
+      <span class="badge text-bg-success rounded-pill card-pending-pill">Accepted</span>
+    <% when "rejected"  %>
+      <span class="badge text-bg-danger rounded-pill card-pending-pill">Rejected</span>
+    <% when "completed" %>
+      <span class="badge text-bg-light rounded-pill card-pending-pill">Completed</span>
+    <% end %>
+
   </div>
 </div>

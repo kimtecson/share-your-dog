@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   def index
     @user = current_user
     @bookings = @user.bookings
+    @owner_bookings = @user.bookings_as_owner
   end
 
   def create
@@ -31,6 +32,16 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path, status: :see_other
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to bookings_path
+    else
+      # render # where was the booking update form?
+      redirect_to bookings_path, status: :unprocessable_entity
+    end
   end
 
   private
