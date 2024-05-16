@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between" style="height: calc(100vh - 70px)">
-  <div class="left d-flex align-items-center w-50" style="background: red;">
+  <div class="left d-flex align-items-center w-50" style="background: url(<%= asset_path 'park.jpg' %>)">
         <div class="custom-search">
         <%= form_with url: root_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
@@ -14,9 +14,15 @@
     </div>
   </div>
 
-  <div class="right d-flex align-items-center justify-content-center w-50">
-  <div class="main-text">
-    <h1>Share Your Dog.</h1>
+  <div class="right d-flex flex-column align-items-center justify-content-between w-50">
+  <div class="main-text" style="margin: 60px;">
+    <h1 style="font-size: 80px; font-weight: bold;">Share Your Dog.</h1>
+    <p>Some random ass lorem ipsum Kim will later replace with some chatGPT text I'm pretty sure bla bla i'm stan just wrigin some content for the page</p>
+  </div>
+  <div class="d-flex dogs" style="margin-bottom: 50px">
+    <%= render 'pages/card', dog: @dogs[0] %>
+    <%= render 'pages/card', dog: @dogs[1] %>
+    <%= render 'pages/card', dog: @dogs[2] %>
   </div>
   </div>
 </div>
