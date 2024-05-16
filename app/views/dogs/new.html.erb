@@ -1,2 +1,15 @@
-<h1>Dogs#new</h1>
+<h1>List Your Dog</h1>
 <p>Find me in app/views/dogs/new.html.erb</p>
+<div class="form-dog">
+  <%= simple_form_for @dog do |f| %>
+
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :breed %>
+      <%= f.input :description %>
+      <%= f.input :price %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
+      <%= f.submit %>
+
+  <% end %>
+</div>
