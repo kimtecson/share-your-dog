@@ -1,12 +1,6 @@
-
-
-
-<div class="home-head d-flex justify-content-center">
-  <div class="text-center dog_card">
-    <p class="title">Share Your Dog.</p>
-      <h2>Find your new Best Friend</h2>
-      <p>Here at ShareYourDog, we aim to match great people with great animals for a great time. Search through our catalogue of dogs, find a pooch near you you'd like to meet and request a booking with the Dog's owner, at a time of your choosing.</p>
-      <div class="custom-search">
+<div class="d-flex justify-content-between" style="height: calc(100vh - 70px)">
+  <div class="left d-flex align-items-center w-50" style="background: red;">
+        <div class="custom-search">
         <%= form_with url: root_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
@@ -19,20 +13,10 @@
         <% end %>
     </div>
   </div>
-</div>
 
-
-
-
-
-<div class="row">
-<% if @dogs.any? %>
-  <% @dogs.each do |dog| %>
-  <div class="col-3">
-    <%= render 'pages/card', dog: dog %>
+  <div class="right d-flex align-items-center justify-content-center w-50">
+  <div class="main-text">
+    <h1>Share Your Dog.</h1>
   </div>
-  <% end %>
-  <% else %>
-    <h1>No results found!</h1>
-  <% end %>
+  </div>
 </div>
