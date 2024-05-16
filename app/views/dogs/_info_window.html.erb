@@ -1,1 +1,14 @@
-<%= image_tag dogs[0].photos.all[0], alt: "Dog picture", class: "card-img img-fluid rounded-top-4" %>
+<%# <%= image_tag dogs[0].photos.all[0], alt: "Dog picture", class: "card-img img-fluid rounded-top-4" %>
+<div class="dog_card">
+  <div class="card rounded-4">
+    <div class="card-body p-0">
+      <%# <%= image_tag dog.photos.all[0], alt: "Dog picture", class: "card-img img-fluid" %>
+       <%= cl_image_tag dogs[0].photos[0].key, alt: "..." , class: "card-img img-fluid"%>
+    </div>
+    <div class="bio ms-1 dog_card">
+      <p class="mb-0 black-bold"> <strong><%= dogs[0].name %></strong> </p>
+      <p class="black-semi-bold">¥<%=dogs[0].price%>0 per hour</p>
+    </div>
+  </div>
+  <%= link_to "", dog_path(dogs[0]), class: "card-dog-link" %>
+</div>
