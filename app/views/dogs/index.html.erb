@@ -3,18 +3,18 @@
 <div class="row">
 
 
-    <div class="col-6">
+    <div class="col-7">
     <h1>All Dogs available</h1>
       <div class="row">
       <% @dogs.order(:id).each do |dog| %>
-        <div class="col-6">
-          <%= render 'pages/card', dog: dog %>
+        <div class="col-4">
+          <%= render 'pages/index_card', dog: dog %>
         </div>
       <% end %>
       </div>
     </div>
 
-  <div class="col-6">
+  <div class="col-5">
     <div style="width: 100%; height: 100vh; position: sticky; top: 70px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
