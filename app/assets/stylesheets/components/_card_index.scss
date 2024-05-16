@@ -1,0 +1,31 @@
+.card_index {
+  .card-img {
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .black-semi-bold {
+    color: black;
+    font-weight: 200;
+  }
+
+  .black-bold {
+    color: black;
+    font-weight: bold;
+  }
+  p {
+    color: rgb(62, 62, 62);
+  }
+  position: relative;
+  .card {
+    overflow: hidden;
+  }
+
+}
+
+.card-dog-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%
+}

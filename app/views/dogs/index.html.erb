@@ -8,7 +8,7 @@
       <div class="row">
       <% @dogs.order(:id).each do |dog| %>
         <div class="col-4">
-          <%= render 'pages/card', dog: dog %>
+          <%= render 'pages/index_card', dog: dog %>
         </div>
       <% end %>
       </div>
