@@ -53,3 +53,12 @@
     opacity: 1;
   };
 };
+
+.card-pending-pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+};
