@@ -5,7 +5,6 @@ class DogsController < ApplicationController
     @users = User.where(id: @dogs.extract_associated(:user).uniq.pluck(:id))
 
     @markers = @users.geocoded.map do |user|
-
       {
         latitude: user.latitude,
         longitude: user.longitude,

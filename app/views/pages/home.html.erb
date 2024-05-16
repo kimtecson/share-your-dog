@@ -7,8 +7,16 @@
       <h2>Find your new Best Friend</h2>
       <p>Here at ShareYourDog, we aim to match great people with great animals for a great time. Search through our catalogue of dogs, find a pooch near you you'd like to meet and request a booking with the Dog's owner, at a time of your choosing.</p>
       <div class="custom-search">
-        <input type="text" class="custom-search-input" placeholder="Search a dog to rent...">
-        <button class="custom-search-botton" type="submit"><i class="fa-solid fa-dog"></i></button>
+        <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "custom-search-input",
+                placeholder: "Search a dog to rent..."
+            %>
+          <%= button_tag type: "submit", class: "custom-search-botton" do %>
+            <i class="fa-solid fa-dog"></i>
+          <% end %>
+        <% end %>
     </div>
   </div>
 </div>
@@ -18,9 +26,13 @@
 
 
 <div class="row">
+<% if @dogs.any? %>
   <% @dogs.each do |dog| %>
   <div class="col-3">
     <%= render 'pages/card', dog: dog %>
   </div>
+  <% end %>
+  <% else %>
+    <h1>No results found!</h1>
   <% end %>
 </div>
