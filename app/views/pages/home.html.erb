@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between" style="height: calc(100vh - 70px)">
   <div class="left d-flex align-items-center w-50" style="background: url(<%= asset_path 'park.jpg' %>)">
         <div class="custom-search">
-        <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "custom-search-input",

@@ -1,7 +1,11 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.all
 
+    if params[:query].present?
+      @dogs = Dog.search_by(params[:query])
+    else
+      @dogs = Dog.all
+    end
     @users = User.where(id: @dogs.extract_associated(:user).uniq.pluck(:id))
 
     @markers = @users.geocoded.map do |user|

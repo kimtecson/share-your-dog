@@ -1,9 +1,6 @@
-
-
 <div class="row">
-
-
     <div class="col-7">
+    <% if @dogs.any? %>
     <h1>All Dogs available</h1>
       <div class="row">
       <% @dogs.order(:id).each do |dog| %>
@@ -11,6 +8,11 @@
           <%= render 'pages/index_card', dog: dog %>
         </div>
       <% end %>
+    <% else %>
+    <div class="container">
+      <h1>No results found!</h1>
+    </div>
+    <% end %>
       </div>
     </div>
 

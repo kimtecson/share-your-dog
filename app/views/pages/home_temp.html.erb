@@ -17,19 +17,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-<div class="row">
-<% if @dogs.any? %>
-  <% @dogs.each do |dog| %>
-  <div class="col-3">
-    <%= render 'pages/card', dog: dog %>
-  </div>
-  <% end %>
-  <% else %>
-    <h1>No results found!</h1>
-  <% end %>
-</div>
