@@ -4,13 +4,10 @@
     <h1><%= @dog.name %></h1>
     <button type="button" class="btn"><i class="fa-regular fa-heart"></i> Save</button>
   </div>
-
   <!-- Dog images -->
   <div class="row dog-grid">
     <div class="col-6 p-1 row-1">
-
       <%= image_tag @dog.photos.all[0], alt: "text", class: "w-100 p-1" %>
-
     </div>
     <div class="col-6 p-1">
       <div class="row">
@@ -25,59 +22,52 @@
       </dp-0 itv>
     </div>
   </div>
- </div>
-  <!-- Dog details -->
-  <div class="mt-4">
-    <div class="row h-100">
-      <div class="col-8 my-2">
-        <!-- Breed and age -->
-        <p class='mb-0'> <i class="fa-solid fa-dog"></i> <%= @dog.breed.capitalize %></p>
-        <p class='mb-0'> <i class="fa-solid fa-calendar-days"></i> <%= @dog.age %> years old </p>
-
-        <!-- Owner information -->
-        <div class="row border-top mt-2">
-          <div class="d-flex align-items-center mt-2">
-            <%= image_tag 'stan.jpg', alt: "text", class: 'rounded-circle avatar me-2', width: '40px', height: '40px' %>
-            <%= @dog.user.name %>
-          </div>
-        </div>
-
-        <!-- Description -->
-        <div class="row border-top mt-2">
-          <div class="col-12 my-2">
-            <%= @dog.description %>
-          </div>
+</div>
+<!-- Dog details -->
+<div class="mt-4">
+  <div class="row h-100">
+    <div class="col-8 my-2">
+      <!-- Breed and age -->
+      <p class='mb-0'> <i class="fa-solid fa-dog"></i> <%= @dog.breed.capitalize %></p>
+      <p class='mb-0'> <i class="fa-solid fa-calendar-days"></i> <%= @dog.age %> years old </p>
+      <!-- Owner information -->
+      <div class="row border-top mt-2">
+        <div class="d-flex align-items-center mt-2">
+          <%= image_tag 'stan.jpg', alt: "text", class: 'rounded-circle avatar me-2', width: '40px', height: '40px' %>
+          <%= @dog.user.name %>
         </div>
       </div>
-
-      <!-- Booking and price -->
-      <div class="col-4 text-center justify-content-center" data-controller="booking-price" data-booking-price-price-value="<%= @dog.price %>"  id="booking-box">
-        <div class="row h-25 align-items-center">
-          <p class='mb-0 black-bold'>¥<%= @dog.price %>0 per hour</p>
+      <!-- Description -->
+      <div class="row border-top mt-2">
+        <div class="col-12 my-2">
+          <%= @dog.description %>
         </div>
-
-        <!-- Date picker -->
-        <div class="row justify-content-center mx-2">
-            <%= simple_form_for([@dog, @booking]) do |f| %>
-
-            <div class="d-flex bg-light border rounded-4">
-              <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
-              <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today } %>
-            </div>
-              <%= f.submit class: "reserve-btn", value: 'Reserve' %>
-            <% end %>
-
-        </div>
-        <p class='mt-1 d-flex align-items-center justify-content-between mb-0'>
-          <span data-booking-price-target='info'></span>
-          <span class='fw-bold' data-booking-price-target='price'></span>
-        </p>
-        <!-- Request button -->
-        <%# <button type="button" class="btn btn-dark w-100 rounded-4 mt-1">Reserve</button> %>
-
       </div>
     </div>
-        <!-- Review -->
-        <%# <div class="mt-2 border"></div>
-        <h1>reviews</h1> %>
+    <!-- Booking and price -->
+    <div class="col-4 text-center justify-content-center" data-controller="booking-price" data-booking-price-price-value="<%= @dog.price %>"  id="booking-box">
+      <div class="row h-25 align-items-center">
+        <p class='mb-0 black-bold'>¥<%= @dog.price %>0 per hour</p>
+      </div>
+      <!-- Date picker -->
+      <div class="row justify-content-center mx-2">
+        <%= simple_form_for([@dog, @booking]) do |f| %>
+          <div class="d-flex bg-light border rounded-4">
+            <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
+            <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today } %>
+          </div>
+          <%= f.submit class: "reserve-btn", value: 'Reserve' %>
+        <% end %>
+      </div>
+      <p class='mt-1 d-flex align-items-center justify-content-between mb-0'>
+        <span data-booking-price-target='info'></span>
+        <span class='fw-bold' data-booking-price-target='price'></span>
+      </p>
+      <!-- Request button -->
+      <%# <button type="button" class="btn btn-dark w-100 rounded-4 mt-1">Reserve</button> %>
+    </div>
   </div>
+  <!-- Review -->
+  <%# <div class="mt-2 border"></div>
+        <h1>reviews</h1> %>
+</div>
