@@ -1,10 +1,9 @@
 <div class="card-booking">
   <%= image_tag booking.dog.photos.all[0], alt: "Dog"%>
   <div class="card-booking-infos">
-    <h2>Booking with <%=booking.dog.name%></h2>
+    <h2>Booking with <%= link_to "#{booking.dog.name}", dog_path(booking.dog), class:"text-dark" %></h2>
+    <p><i class="fa-regular fa-calendar"></i> <strong><%= booking.start_time %></strong> (<%= booking.start_time.strftime('%l:%M %p') %>) to <strong><%= booking.end_time %></strong> (<%= booking.end_time.strftime('%l:%M %p') %>)</p>
     <p>Total Price: ¥<strong><%=booking.total_price %></strong></p>
-    <p>Start Date: <strong><%=booking.start_time %></strong> </p>
-    <p>End Date: <strong><%=booking.end_time %></strong> </p>
     <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: 'This will delete this booking, are you sure?' }, class: 'card-remove-link' do %>
       <i class="fa-solid fa-poop"></i>
     <% end %>
