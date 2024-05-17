@@ -1,28 +1,35 @@
 <div class="d-flex justify-content-between" style="height: calc(100vh - 70px)">
-  <div class="left d-flex align-items-center w-50" style="background: url(<%= asset_path 'park.jpg' %>)">
-        <div class="custom-search">
-        <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "custom-search-input",
-                placeholder: "Search a dog to rent..."
-            %>
-          <%= button_tag type: "submit", class: "custom-search-botton" do %>
-            <i class="fa-solid fa-dog"></i>
-          <% end %>
+  <div class="left d-flex flex-column text-center align-items-center w-50" style="background: url(<%= asset_path 'park.jpg' %>)">
+    <h1 style="font-size: 80px; font-weight: bold; margin-top: 250px;">BarkBnB</h1>
+    <p>Your Best Friend, One Bark at a Time</p>
+    <div class="custom-search" style="margin-bottom: 350px;">
+      <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "custom-search-input", placeholder: "Search a dog to rent..." %>
+        <%= button_tag type: "submit", class: "custom-search-botton" do %>
+          <i class="fa-solid fa-dog"></i>
         <% end %>
+      <% end %>
     </div>
   </div>
-
-  <div class="right d-flex flex-column align-items-center justify-content-between w-50">
-  <div class="main-text" style="margin: 60px;">
-    <h1 style="font-size: 80px; font-weight: bold;">Share Your Dog.</h1>
-    <p>Some random ass lorem ipsum Kim will later replace with some chatGPT text I'm pretty sure bla bla i'm stan just wrigin some content for the page</p>
-  </div>
-  <div class="d-flex dogs" style="margin-bottom: 50px">
-    <%= render 'pages/card', dog: @dogs[0] %>
-    <%= render 'pages/card', dog: @dogs[1] %>
-    <%= render 'pages/card', dog: @dogs[2] %>
-  </div>
+  <div class="right d-flex flex-column justify-content-between w-50" data-controller="home">
+    <div class="main-text pe-5" style="margin-top: 20%; margin-left: 5%">
+      <h1 style="font-size: 75px; font-weight: bold;" data-home-target="meetDog">Meet Our Dogs.</h1>
+      <p>From playful pups to wise seniors, each canine resident boasts a unique personality and a wagging tail eager to greet you. Whether you're seeking a spirited playmate for outdoor adventures or a cuddly couch companion for cozy evenings, our diverse collection of dogs offers something for every dog lover.</p>
+    </div>
+    <div class="d-flex dogs justify-content-center mx-3" style="margin-bottom: 20%">
+      <div data-home-target="dogOne"><%= render 'pages/card_home', dog: @dogs[0] %></div>
+      <div data-home-target="dogTwo"><%= render 'pages/card_home', dog: @dogs[1] %></div>
+      <div data-home-target="dogThree"><%= render 'pages/card_home', dog: @dogs[2] %></div>
+      <div class="row w-100 d-none" data-home-target="showDog">
+        <div class="col-6">
+          <!-- This section will display the clicked dog card -->
+        </div>
+        <div class="col-6 shadow-sm p-3">
+          <p data-home-target="dogDescription"><%= @dogs[0].description %></p>
+          <%= link_to "Top Dogs", root_path, class: "reserve-btn" %>
+          <%= link_to "Rent Dog", root_path, class: "reserve-btn" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

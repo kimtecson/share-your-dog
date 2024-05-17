@@ -1,0 +1,7 @@
+<div class="card_index" data-dog-name="<%= dog.name %>" data-dog-description="<%= dog.description %>" data-action="click->home#displayDog">
+  <div class="card m-1 rounded-4">
+    <div class="card-body p-0">
+      <%= image_tag dog.photos.all[0], alt: "Dog picture", class: "card-img img-fluid" %>
+    </div>
+  </div>
+</div>
