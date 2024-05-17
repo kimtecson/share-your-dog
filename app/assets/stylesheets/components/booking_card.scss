@@ -35,7 +35,7 @@
 }
 
 .card-remove-link {
-  color: rgb(52, 31, 31);
+  color: #F29559 ;
   border-radius: 50%;
   border: 1px solid white;
   display: flex;
@@ -62,4 +62,12 @@
   position: absolute;
   right: 10px;
   bottom: 10px;
+  color: #F29559;
+
 };
+
+.booking-stat{
+  :hover{
+    color: #F29559;
+  }
+}

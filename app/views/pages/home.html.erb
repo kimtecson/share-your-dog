@@ -12,9 +12,9 @@
     </div>
   </div>
   <div class="right d-flex flex-column justify-content-between w-50" data-controller="home">
-    <div class="main-text pe-5" style="margin-top: 20%; margin-left: 5%">
-      <h1 style="font-size: 75px; font-weight: bold;" data-home-target="meetDog">Meet Our Dogs.</h1>
-      <p>From playful pups to wise seniors, each canine resident boasts a unique personality and a wagging tail eager to greet you. Whether you're seeking a spirited playmate for outdoor adventures or a cuddly couch companion for cozy evenings, our diverse collection of dogs offers something for every dog lover.</p>
+    <div class="main-text pe-5" style="margin-top: 10%; margin-left: 5%">
+      <h2 style="font-size: 60px;" data-home-target="meetDog">Meet Our Dogs.</h2>
+      <p data-home-target="dogPara">From playful pups to wise seniors, each canine resident boasts a unique personality and a wagging tail eager to greet you. Whether you're seeking a spirited playmate for outdoor adventures or a cuddly couch companion for cozy evenings, our diverse collection of dogs offers something for every dog lover.</p>
     </div>
     <div class="d-flex dogs justify-content-center mx-3" style="margin-bottom: 20%">
       <div data-home-target="dogOne"><%= render 'pages/card_home', dog: @dogs[0] %></div>
@@ -26,8 +26,8 @@
         </div>
         <div class="col-6 shadow-sm p-3">
           <p data-home-target="dogDescription"><%= @dogs[0].description %></p>
-          <%= link_to "Top Dogs", root_path, class: "reserve-btn" %>
-          <%= link_to "Rent Dog", root_path, class: "reserve-btn" %>
+          <%= link_to "Back", root_path, class: "reserve-btn" %>
+          <%= link_to "Rent Dog", dog_path(@dogs[0]), class: "reserve-btn" %>
         </div>
       </div>
     </div>

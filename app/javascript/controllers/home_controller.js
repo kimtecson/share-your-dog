@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['dogOne', 'dogTwo', 'dogThree', 'meetDog', 'showDog', 'dogDescription']
+  static targets = ['dogOne', 'dogTwo', 'dogThree', 'meetDog', 'showDog', 'dogDescription', 'dogPara']
 
   connect() {
     console.log("Hello from home_controller.js");
@@ -18,7 +18,7 @@ export default class extends Controller {
     }
 
     console.log('Displaying:', dogName);
-
+    this.dogParaTarget.innerText = "";
     // Update the heading and description
     this.meetDogTarget.innerText = `Meet ${dogName}`;
     this.dogDescriptionTarget.innerText = dogDescription;
