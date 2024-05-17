@@ -3,6 +3,9 @@ import flatpickr from "flatpickr"; // You need to import this to use new flatpic
 
 export default class extends Controller {
   connect() {
-    flatpickr(this.element)
+    flatpickr(this.element, {
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",
+  })
   }
 }
