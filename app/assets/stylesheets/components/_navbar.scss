@@ -1,14 +1,19 @@
 
-.navbar .btn-account {
-  border-radius: 24px;
-  background: #F29559 !important;
-  color: white;
-  padding: 10px 30px 10px 30px;
-  text-decoration: none;
-  margin: 5px;
-
-}
 .navbar {
+
+  .btn-account {
+    border-radius: 24px;
+    background: #F29559 !important;
+    color: white;
+    padding: 10px 30px 10px 30px;
+    text-decoration: none;
+    margin: 5px;
+  }
+
+  .btn-account:hover {
+    background: #f18842 !important;
+
+  }
   margin-bottom: 0;
   position: sticky;
   z-index: 999999;
