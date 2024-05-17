@@ -55,6 +55,7 @@
           <div class="d-flex bg-light border rounded-4">
             <%= f.input :start_time, placeholder: Date.today.to_s, as: :string, input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'start_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today }, wrapper_html: { class: 'mb-0 pb-3 border-end', style: 'margin-bottom: 0 !important'} %>
             <%= f.input :end_time, placeholder: (Date.today + 1).to_s, as: :string,  input_html: { value: Date.today, data: { controller: "datepicker", booking_price_target: 'end_date', action: 'change->booking-price#update' }, style: "background-color: transparent; border: none; text-align: center;", min: Date.today } %>
+
           </div>
           <%= f.submit class: "reserve-btn", value: 'Reserve' %>
         <% end %>

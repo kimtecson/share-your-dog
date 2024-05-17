@@ -16,7 +16,9 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = @user
     @booking.status = "pending"
-    @booking.total_price = @dog.price * (@booking.end_time - @booking.start_time) * 24
+    # array = [@booking.start_time, @booking.end_time]
+    # raise
+    @booking.total_price = @dog.price * ((@booking.end_time - @booking.start_time) / 60 / 60)
     if @booking.save
       redirect_to bookings_path
     else
