@@ -1,55 +1,51 @@
 <div class="mx-5">
-
-<h1 class="mt-3"><%= "#{@user.name}'s Bookings" %></h1>
-<% if @bookings.count > 0 %>
-<div class="row">
-  <% @bookings.each do |booking| %>
-      <div class="col-6">
-      <%= render 'pages/booking_card', booking: booking %>
-      </div>
+  <h1 class="mt-3"><%= "#{@user.name}'s Bookings" %></h1>
+  <% if @bookings.count > 0 %>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-6">
+          <%= render 'pages/booking_card', booking: booking %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p><%= "You have no bookings!"%></p>
   <% end %>
-</div>
-<% else %>
-  <p><%= "You have no bookings!"%></p>
-<% end %>
-
-<% if  @owner_bookings.present?%>
-<h2 class="mt-3">Your Dog's Bookings</h2>
-<div class="bookings">
-  <% @owner_bookings.each do |booking| %>
-    <div class="booking card-booking">
-      <div class='booking-left'>
-        <!-- if you're using cloudinary and activestorage -->
-        <%# <%= cl_image_tag booking.user.photo, class: 'avatar-bordered' %>
-        <%= image_tag 'stan.jpg', alt: "text", class: '', width: '100px', height: '50px' %>
-        <div class="booking-info">
-          <div class="booking-info-title">
-           <%= booking.user.name %> would like to book <%= booking.dog.name %>
+  <% if  @owner_bookings.present?%>
+    <h2 class="mt-3">Your Dog's Bookings</h2>
+    <div class="bookings">
+      <% @owner_bookings.each do |booking| %>
+        <div class="booking card-booking">
+          <div class='booking-left'>
+            <!-- if you're using cloudinary and activestorage -->
+            <%# <%= cl_image_tag booking.user.photo, class: 'avatar-bordered' %>
+            <%= image_tag 'stan.jpg', alt: "text", class: '', width: '100px', height: '50px' %>
+            <div class="booking-info">
+              <div class="booking-info-title">
+                <%= booking.user.name %> would like to book <%= booking.dog.name %>
+              </div>
+              <div class="booking-info-details">
+                <i class="fa-regular fa-calendar"></i> <strong><%= booking.start_time %></strong> (<%= booking.start_time.strftime('%l:%M %p') %>) - <strong><%= booking.end_time %></strong> (<%= booking.end_time.strftime('%l:%M %p') %>)
+                <p>Total Price: ¥<%= booking.total_price %></p>
+              </div>
+            </div>
           </div>
-          <div class="booking-info-details">
-            <i class="fa-regular fa-calendar"></i> <strong><%= booking.start_time %></strong> (<%= booking.start_time.strftime('%l:%M %p') %>) - <strong><%= booking.end_time %></strong> (<%= booking.end_time.strftime('%l:%M %p') %>)
-            <p>Total Price: ¥<%= booking.total_price %></p>
+          <div class="booking-actions">
+            <% if booking.pending? %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                <%= f.submit 'Accept', class: 'button-choice-yes' %>
+              <% end %>
+              <%= simple_form_for booking do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                <%= f.submit 'Reject', class: 'button-choice-no' %>
+              <% end %>
+            <% else %>
+              <p class='booking-tag'><%= booking.status %></p>
+            <% end %>
           </div>
         </div>
-      </div>
-      <div class="booking-actions">
-        <% if booking.pending? %>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-            <%= f.submit 'Accept', class: 'booking-stat' %>
-          <% end %>
-          <%= simple_form_for booking do |f| %>
-            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-            <%= f.submit 'Reject', class: 'booking-stat' %>
-          <% end %>
-        <% else %>
-          <p class='booking-tag'><%= booking.status %></p>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-</div>
-
+      <% end %>
+    <% end %>
+  </div>
 </div>
