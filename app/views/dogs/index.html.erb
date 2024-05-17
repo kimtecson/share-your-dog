@@ -1,17 +1,23 @@
-
-
 <div class="row">
-
-
     <div class="col-7">
+
     <h1 class="ms-2 mt-3">Discover the Paw-fect companion!</h1>
     <p class="ms-2">Have a look at all our available dogs below, or use the map to see what Dogs close to you, right now!</p>
+
+    <% if @dogs.any? %>
+    <h1>All Dogs available</h1>
+
       <div class="row">
       <% @dogs.order(:id).each do |dog| %>
         <div class="col-4">
           <%= render 'pages/index_card', dog: dog %>
         </div>
       <% end %>
+    <% else %>
+    <div class="container">
+      <h1>No results found!</h1>
+    </div>
+    <% end %>
       </div>
     </div>
 
