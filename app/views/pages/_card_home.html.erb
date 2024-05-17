@@ -1,13 +1,7 @@
-<div class="dog_card">
-  <div class="card mt-3 m-1 rounded-4">
+<div class="card_index" data-dog-name="<%= dog.name %>" data-dog-description="<%= dog.description %>" data-action="click->home#displayDog">
+  <div class="card m-1 rounded-4">
     <div class="card-body p-0">
-      <%# <%= image_tag dog.photos.all[0], alt: "Dog picture", class: "card-img img-fluid" %>
-      <%= render 'pages/carousel', dog: dog, class: "card-img img-fluid" %>
-    </div>
-    <div class="bio ms-2 mt-3 dog_card">
-      <p class="mb-0 black-bold"> <strong><%= dog.name %></strong> </p>
-      <p class="mb-0"> <%="#{dog.user.name}'s Dog" %></p>
-      <p class="black-semi-bold">¥<%=dog.price%>0 per hour</p>
+      <%= image_tag dog.photos.all[0], alt: "Dog picture", class: "card-img img-fluid" %>
     </div>
   </div>
 </div>
