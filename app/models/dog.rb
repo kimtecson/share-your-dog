@@ -7,7 +7,7 @@ class Dog < ApplicationRecord
 
   validates :name, presence: true, length: { within: 3..20 }
   validates :age, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  BREEDS = ["shiba", "corgie", "husky", "daschund", "poodle"]
+  BREEDS = ["Shiba", "Corgie", "Husky", "Daschund", "Poodle"]
   validates :breed, presence: true, inclusion: { in: BREEDS }
   validates :price, presence: true
     # acts_as_taggable_on :tags
