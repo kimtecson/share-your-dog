@@ -16,6 +16,8 @@ export default class extends Controller {
       const diffInMs =
         new Date(this.end_dateTarget.value) -
         new Date(this.start_dateTarget.value);
+        const testDate = new Date(this.start_dateTarget.value)
+        console.log(testDate);
       const diffInDays = diffInMs / (1000 * 60 * 60);
       if (diffInDays > 0) {
         // displays the total price per nigh
