@@ -16,18 +16,18 @@ export default class extends Controller {
       const diffInMs =
         new Date(this.end_dateTarget.value) -
         new Date(this.start_dateTarget.value);
-      const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+      const diffInDays = diffInMs / (1000 * 60 * 60);
       if (diffInDays > 0) {
         // displays the total price per nigh
-        this.infoTarget.innerText = `¥${pricePerDay} x ${diffInDays * 24} hours`;
+        this.infoTarget.innerText = `¥${pricePerDay} x ${diffInDays} hours`;
         this.priceTarget.innerHTML = `<span>¥${(
-          diffInDays * pricePerDay *24
+          diffInDays * pricePerDay
         ).toLocaleString()}</span> <small class='fw-light'>total</small> `;
       } else if (diffInDays === 0) {
         // displays 1-night minimum if end date is same as start date
         this.infoTarget.innerText = "";
         this.priceTarget.innerHTML =
-          "<span class='text-danger fw-light'>1-night mininum</span>";
+          "<span class='text-danger fw-light'>1-hour mininum</span>";
       } else {
         // displays invalid if the end date is before the start or not overnight
         this.infoTarget.innerText = "";
