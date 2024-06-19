@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between" style="height: calc(100vh - 70px)">
-  <div class="left d-flex flex-column text-center align-items-center w-50" style="background: url(<%= asset_path 'park.jpg' %>)">
-    <h1 style="font-size: 80px; font-weight: bold; margin-top: 250px;">BarkBnB</h1>
-    <p>Your Best Friend, One Bark at a Time</p>
+  <div class="left d-flex flex-column text-center align-items-center w-50" style="background: url(<%= asset_path 'bg.jpg' %>)">
+    <h1 style="font-size: 80px; font-weight: bold; margin-top: 250px; color: white;">BarkBnB</h1>
+    <p style="color: white;">Your Best Friend, One Bark at a Time</p>
     <div class="custom-search" style="margin-bottom: 350px;">
       <%= form_with url: dogs_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query, params[:query], class: "custom-search-input", placeholder: "Search a dog to rent..." %>
@@ -19,7 +19,7 @@
     <div class="d-flex dogs justify-content-center mx-3" style="margin-bottom: 20%">
       <div data-home-target="dogOne"><%= render 'pages/card_home', dog: @dogs[0] %></div>
       <div data-home-target="dogTwo"><%= render 'pages/card_home', dog: @dogs[1] %></div>
-      <div data-home-target="dogThree"><%= render 'pages/card_home', dog: @dogs[2] %></div>
+      <div data-home-target="dogThree"><%= render 'pages/card_home', dog: @dogs[3] %></div>
       <div class="row w-100 d-none" data-home-target="showDog">
         <div class="col-6">
           <!-- This section will display the clicked dog card -->

@@ -1,5 +1,21 @@
 .card_index {
 
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.178);
+  overflow: hidden;
+  transition: all ease 0.3s;
+
+  &:hover {
+    transform: scale(1.005);
+
+  }
+
+  .index-carousel {
+    display: none;
+  }
+
+
   .card-img {
     height: 300px;
     object-fit: cover;
@@ -20,6 +36,7 @@
   position: relative;
   .card {
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.178);
   }
 
 }

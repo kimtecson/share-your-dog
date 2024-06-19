@@ -1,25 +1,25 @@
-<div class="row">
-  <div class="col-7">
-    <h1 class="ms-2 mt-3">Discover the Paw-fect companion!</h1>
-    <p class="ms-2">Have a look at all our available dogs below, or use the map to see what Dogs close to you, right now!</p>
-    <div class="row">
-      <% @dogs.order(:id).each do |dog| %>
-        <div class="col-4">
-          <%= render 'pages/index_card', dog: dog %>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="container">
-        <h1>No results found!</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-7 mt-3">
+      <div class="row">
+        <% @dogs.order(:id).each do |dog| %>
+          <div class="col-4">
+            <%= render 'pages/index_card', dog: dog %>
+          </div>
+        <% end %>
+        <% if @dogs.empty? %>
+          <div class="container">
+            <h1>No results found!</h1>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+    <div class="col-5 ps-0 px-0">
+      <div style="width: 100%; height: calc(100vh - 70px); position: sticky; top: 70px; left: 0;"
+           data-controller="map"
+           data-map-markers-value="<%= @markers.to_json %>"
+           data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
-</div>
-<div class="col-5">
-  <div style="width: 100%; height: 100vh; position: sticky; top: 70px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
 </div>
